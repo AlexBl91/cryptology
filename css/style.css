@@ -1,0 +1,56 @@
+html {
+	font-size: 18px;
+}
+
+body {
+	background: url(../img/light_wool.png) repeat scroll;
+  color: #404040;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  height: 100%;
+  width: 100%;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.wrap {
+  max-width: 980px;
+  min-width: 850px;
+  background: #FFFFFF;
+  height: auto !important;
+  text-align: justify;
+  box-shadow: 0 0 4px #404040;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.header {
+    background: #404040 repeat scroll;
+    height: 40px;
+}
+
+.task {
+  margin: 20px 0px;
+  position: relative;
+  left: 50px;
+}
+
+.task span {
+  font-size: 14px;
+  display: block;
+  margin: 10px 0;
+}
+.footer {
+    background-color: #F5F5F5;
+    border-top: 1px solid #B0B0B0;
+    margin: -47px 0 0;
+    margin-top: 50px;   
+    height: 46px;
+    opacity: 0.7;
+    cursor: default;
+}
+.footer span {
+	position: relative;
+	left: 20px;
+	top: 16px;
+}
