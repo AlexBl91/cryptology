@@ -16,7 +16,7 @@ function EuclidAlgorithm (a,b) {
 
 // Task #1
 // Function calculates greatest common divisor by the extended Euclid algorithm.
-// Accepts 2 arguments of type integer.
+// Accepts 2 arguments of type integer. Returns array of 5 elements.
 function EuclidAlgorithmEx (a, b) {
   var arrR = [];
   var arrQ = [];
@@ -35,8 +35,20 @@ function EuclidAlgorithmEx (a, b) {
     arrX[i] = arrX[i-2] - arrX[i-1] * arrQ[i];
   }
   var v = (arrR[i-2] - a * arrX[i-2]) / b; 
-  document.getElementById('result').innerHTML = "Bezout's identity:  " +  a + ' * ' + arrX[i-2] + ' + ' + b + ' * ' + v + ' = ' + arrR[i-2];
-  
+  //document.getElementById('result').innerHTML = "Bezout's identity:  " +  a + ' * ' + arrX[i-2] + ' + ' + b + ' * ' + v + ' = ' + arrR[i-2];
+  var result = [a, b, v, arrR, arrQ, arrX];
+  // print1(arrR, arrQ, arrX);
+  return result;
+}
+// Function prints result of EuclidAlgorithmEx funtion. Accepts array
+function printTask1(ARGV) {
+  var a = ARGV[0];
+  var b = ARGV[1];
+  var v = ARGV[2];
+  var arrR = ARGV[3];
+  var arrQ = ARGV[4];
+  var arrX = ARGV[5];
+  //document.getElementById('result').innerHTML = "Bezout's identity:  " +  a + ' * ' + arrX[arrX.length-2] + ' + ' + b + ' * ' + v + ' = ' + arrR[arrR.length-2];
   print1(arrR, arrQ, arrX);
 }
 
@@ -151,7 +163,7 @@ $(document).ready(function(){
     var varAValue = document.getElementById('varA').value;
     var varBValue = document.getElementById('varB').value;
     if (filterInput(varAValue, varBValue)) {
-      EuclidAlgorithmEx(varAValue, varBValue);      
+      printTask1(EuclidAlgorithmEx(varAValue, varBValue));      
     }
   });
   $("#btnSubmit2").click(function(){
