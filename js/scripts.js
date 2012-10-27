@@ -1,5 +1,5 @@
 // Task #1
-// Function calculates greatest common divisor by the Euclid algorithm.
+// The function calculates greatest common divisor by the Euclid algorithm.
 // Accepts 2 arguments of type integer.
 function EuclidAlgorithm (a,b) {
   var arrR = [];
@@ -15,7 +15,7 @@ function EuclidAlgorithm (a,b) {
 }
 
 // Task #1
-// Function calculates greatest common divisor by the extended Euclid algorithm.
+// The function calculates greatest common divisor by the extended Euclid algorithm.
 // Accepts 2 arguments of type integer. Returns array of 5 elements.
 function EuclidAlgorithmEx (a, b) {
   var arrR = [];
@@ -40,7 +40,7 @@ function EuclidAlgorithmEx (a, b) {
   // print1(arrR, arrQ, arrX);
   return result;
 }
-// Function prints result of EuclidAlgorithmEx funtion. Accepts array
+// The function prints result of EuclidAlgorithmEx funtion. Accepts array
 function printTask1(ARGV) {
   var a = ARGV[0];
   var b = ARGV[1];
@@ -52,7 +52,7 @@ function printTask1(ARGV) {
   print1(arrR, arrQ, arrX);
 }
 
-// Function print of result of EuclidAlgorithmEx function.
+// The function print of result of EuclidAlgorithmEx function.
 // Accepts 3 arguments of type array.
 function print1(arrR, arrQ, arrX) {
   for (var i = 2; i<=arrR.length; i++)
@@ -81,7 +81,7 @@ function clean() {
   }
 }
 
-// Function check of input data. Called without arguments.
+// The function check of input data. Called without arguments.
 // Returns 0 (false in boolean) if even one text box is 
 // empty or input data contain letter or special symbols.
 // Returns 1 (true in boolean) in correct input data case.
@@ -103,15 +103,91 @@ function filterInput() {
   this.val = null;
   this.count = 0; 
 }*/
-// Defenition constructor of class 'PrimeNums' with parameter
+// The function creats same value array elements.
+// @param count - size of array
+// @param value - value of array elements
+// Function returns array.
+function createArray(count, value) {
+  var arr = [];
+  arr.length = count; 
+  for (var i = 0; i < arr.length; i++) {
+    arr[i] = value;
+  }
+  return arr;
+}
+
+// The function calculates the prime numbers up to a specified. Implementation
+// of the sieve of Eratosthenes algorithm. The function accepts number and
+// reterns array.
+function EratosthenesSieve(testNum) {
+  var primeNums = createArray(Number(testNum) + 1, Boolean(true));
+
+  for (var i = 2; i * i <= testNum; i++) {
+    if (primeNums[i] == true) {
+      for (var j = i * i; j <= testNum; j += i) {
+        if (primeNums[j] == true) {
+          primeNums[j] = false;
+        }
+      }
+    }
+  }
+  
+  // Following code for test only 
+  for (var i = 2; i <= testNum; i++) {
+    if (primeNums[i] == true)
+      console.log(i);
+  }
+
+  var arr = [];
+  var j = 0;
+  for ( var i = 2; i <= testNum; i++) {
+    if (primeNums[i] == true)
+      arr[j++] = i;
+  }
+  // Following code for test only
+  console.log(arr.length);
+
+  return arr;
+}
+// The function initializes an array of objects PrimeNums. Accepts
+// array and returns an array of objects PrimeNums.
+function initArrayOfPrimeNumsObj(arr) {
+  var primeNums = [];
+
+  for ( var i = 0; i < arr.length; i++) {
+    primeNums[i] = new PrimeNums(arr[i]);
+  }
+  return primeNums;
+}
+// Defenition of the constructor of a class 'PrimeNums' with a parameter
 function PrimeNums(parameter) {
   this.val = parameter;
   this.count = 0; 
 }
-// Function canonical representation of the number of primes
+// The function canonical representation of the number of primes
 function CanonicalRepresentations(a) {
-  var primeNums = new Array;
-  primeNums[0] = new PrimeNums(2);
+  //var arr = [];
+  //arr = EratosthenesSieve(a);
+  var primeNums = [];
+  primeNums = initArrayOfPrimeNumsObj(EratosthenesSieve(a)); 
+  var i = 0;
+
+  while(true) {
+    while (a % primeNums[i].val == 0) {
+      a /= primeNums[i].val;
+      primeNums[i].count++; 
+    }
+    if (a == 1) {
+      break;
+    } else {
+      //i++;
+      if (primeNums[++i] == undefined) {
+        break;        
+      }
+    }
+  }
+
+/*
   var flag = true;
   var i = 0;
   while (flag == true) {
@@ -126,13 +202,17 @@ function CanonicalRepresentations(a) {
       primeNums[++i] = new PrimeNums(getNextPrimeNum(primeNums[i-1].val));
     }
   }
+*/
+
   printResTask2(primeNums);
 }
 
 function printResTask2 (arrObj) {
   var strResult = "";
   for (var i in arrObj) {
-    strResult = arrObj[i].val + '^' + arrObj[i].count + '*';
+    if (arrObj[i].count > 0) {
+      strResult += arrObj[i].val + '^' + arrObj[i].count + '*';
+    }
   }
   /*var newElem = createElement('div');
   newElem.className = 'tmpResult';
@@ -169,7 +249,8 @@ $(document).ready(function(){
   $("#btnSubmit2").click(function(){
     var varCValue = document.getElementById('varC').value;
     if (filterInput(varCValue)) {
-      CanonicalRepresentations(varCValue);      
+      CanonicalRepresentations(varCValue);
+      //EratosthenesSieve(varCValue);      
     }
   });
   $("#tmpBtnClean").click(function(){
