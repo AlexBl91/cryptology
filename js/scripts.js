@@ -35,9 +35,7 @@ function EuclidAlgorithmEx (a, b) {
     arrX[i] = arrX[i-2] - arrX[i-1] * arrQ[i];
   }
   var v = (arrR[i-2] - a * arrX[i-2]) / b; 
-  //document.getElementById('result').innerHTML = "Bezout's identity:  " +  a + ' * ' + arrX[i-2] + ' + ' + b + ' * ' + v + ' = ' + arrR[i-2];
   var result = [a, b, v, arrR, arrQ, arrX];
-  // print1(arrR, arrQ, arrX);
   return result;
 }
 // The function prints result of EuclidAlgorithmEx funtion. Accepts array
@@ -85,7 +83,7 @@ function clean() {
 // Returns 0 (false in boolean) if even one text box is 
 // empty or input data contain letter or special symbols.
 // Returns 1 (true in boolean) in correct input data case.
-function filterInput() {
+function FilterInput() {
   var regExp = new RegExp(/[^0-9]/);
   for ( var i in arguments) {
     if (arguments[i] == "") {
@@ -98,19 +96,14 @@ function filterInput() {
   }
   return 1;
 } 
-// Defenition constructor of class 'PrimeNums' without by default
-/*function PrimeNums() {
-  this.val = null;
-  this.count = 0; 
-}*/
+
 // The function creats same value array elements.
 // @param count - size of array
 // @param value - value of array elements
 // Function returns array.
-function createArray(count, value) {
+function CreateArray(count, value) {
   var arr = [];
-  arr.length = count; 
-  for (var i = 0; i < arr.length; i++) {
+  for (var i = 0; i < count; i++) {
     arr[i] = value;
   }
   return arr;
@@ -120,7 +113,7 @@ function createArray(count, value) {
 // of the sieve of Eratosthenes algorithm. The function accepts number and
 // reterns array.
 function EratosthenesSieve(testNum) {
-  var primeNums = createArray(Number(testNum) + 1, Boolean(true));
+  var primeNums = CreateArray(Number(testNum) + 1, Boolean(true));
 
   for (var i = 2; i * i <= testNum; i++) {
     if (primeNums[i] == true) {
@@ -132,26 +125,18 @@ function EratosthenesSieve(testNum) {
     }
   }
   
-  // Following code for test only 
-  for (var i = 2; i <= testNum; i++) {
-    if (primeNums[i] == true)
-      console.log(i);
-  }
-
   var arr = [];
   var j = 0;
   for ( var i = 2; i <= testNum; i++) {
     if (primeNums[i] == true)
       arr[j++] = i;
   }
-  // Following code for test only
-  console.log(arr.length);
 
   return arr;
 }
 // The function initializes an array of objects PrimeNums. Accepts
 // array and returns an array of objects PrimeNums.
-function initArrayOfPrimeNumsObj(arr) {
+function InitArrayOfPrimeNumsObj(arr) {
   var primeNums = [];
 
   for ( var i = 0; i < arr.length; i++) {
@@ -166,10 +151,8 @@ function PrimeNums(parameter) {
 }
 // The function canonical representation of the number of primes
 function CanonicalRepresentations(a) {
-  //var arr = [];
-  //arr = EratosthenesSieve(a);
   var primeNums = [];
-  primeNums = initArrayOfPrimeNumsObj(EratosthenesSieve(a)); 
+  primeNums = InitArrayOfPrimeNumsObj(EratosthenesSieve(a)); 
   var i = 0;
 
   while(true) {
@@ -180,45 +163,25 @@ function CanonicalRepresentations(a) {
     if (a == 1) {
       break;
     } else {
-      //i++;
       if (primeNums[++i] == undefined) {
         break;        
       }
     }
   }
-
-/*
-  var flag = true;
-  var i = 0;
-  while (flag == true) {
-    while (a % primeNums[i].val == 0) {  // пока исходное делится на найденное простое
-      a = a / primeNums[i].val;          // получаем колество вхождения текущего 
-      primeNums[i].count++;              // простого множителя в исходное число
-    }
-    if (a == primeNums[i].val) {         // если исходное равно найденному простому множителю, 
-      break;                             // то он является последним. Выходим из цикла. 
-      flag = false;
-    } else {                             // Иначе ищем следующий простой множитель
-      primeNums[++i] = new PrimeNums(getNextPrimeNum(primeNums[i-1].val));
-    }
-  }
-*/
-
-  printResTask2(primeNums);
+  return primeNums;
 }
 
 function printResTask2 (arrObj) {
   var strResult = "";
+  var number = 1;
   for (var i in arrObj) {
     if (arrObj[i].count > 0) {
       strResult += arrObj[i].val + '^' + arrObj[i].count + '*';
+      number *= Math.pow(arrObj[i].val, arrObj[i].count); 
     }
   }
-  /*var newElem = createElement('div');
-  newElem.className = 'tmpResult';
-  newElem.innerHTML = strResult;
-  document.getElementById('result1').appendChild(newElem);*/
-  document.getElementById('result1').innerHTML = strResult;
+
+  document.getElementById('result1').innerHTML = number + ' = ' + strResult.slice(0, strResult.length - 1);
 }
 
 // Function getting next prime number after current.
@@ -242,20 +205,23 @@ $(document).ready(function(){
   $("#btnSubmit").click(function(){
     var varAValue = document.getElementById('varA').value;
     var varBValue = document.getElementById('varB').value;
-    if (filterInput(varAValue, varBValue)) {
+    if (FilterInput(varAValue, varBValue)) {
       printTask1(EuclidAlgorithmEx(varAValue, varBValue));      
     }
   });
   $("#btnSubmit2").click(function(){
     var varCValue = document.getElementById('varC').value;
-    if (filterInput(varCValue)) {
-      CanonicalRepresentations(varCValue);
-      //EratosthenesSieve(varCValue);      
+    if (FilterInput(varCValue)) {
+      printResTask2(CanonicalRepresentations(varCValue));     
     }
   });
   $("#tmpBtnClean").click(function(){
     alert('udifghifdugb;fdl');
     clean();
   });
+/*
+  $('#slideshow').rhinoslider({
+    controlsPlayPause: false});
+*/
 });
 
