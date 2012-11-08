@@ -134,6 +134,31 @@ function EratosthenesSieve(testNum) {
 
   return arr;
 }
+
+function BruteForce(testNum) {
+  var n = 2;
+  var primeNums = [];
+  primeNums[0] = new PrimeNums(n);
+  var i = 0;
+  while (true) {
+    while (testNum % n == 0) {
+      testNum /= n;
+      if (primeNums[i] == undefined) {
+        primeNums[i] = new PrimeNums(n);
+        primeNums[i].count++;
+      } else {
+        primeNums[i].count++;
+      }
+    }
+    if (testNum == 1) {
+      break;
+    } else {
+      n++;
+      i++;
+    }
+  }
+  return primeNums;
+}
 // The function initializes an array of objects PrimeNums. Accepts
 // array and returns an array of objects PrimeNums.
 function InitArrayOfPrimeNumsObj(arr) {
@@ -152,7 +177,7 @@ function PrimeNums(parameter) {
 // The function canonical representation of the number of primes
 function CanonicalRepresentations(a) {
   var primeNums = [];
-  primeNums = InitArrayOfPrimeNumsObj(EratosthenesSieve(a)); 
+  primeNums = InitArrayOfPrimeNumsObj(EratosthenesSieve(a));       
   var i = 0;
 
   while(true) {
@@ -212,16 +237,16 @@ $(document).ready(function(){
   $("#btnSubmit2").click(function(){
     var varCValue = document.getElementById('varC').value;
     if (FilterInput(varCValue)) {
-      printResTask2(CanonicalRepresentations(varCValue));     
+      if (varCValue.length < 8) {
+      printResTask2(CanonicalRepresentations(varCValue)); 
+      } else {
+        printResTask2(BruteForce(varCValue));     
+      }
     }
   });
   $("#tmpBtnClean").click(function(){
     alert('udifghifdugb;fdl');
     clean();
   });
-/*
-  $('#slideshow').rhinoslider({
-    controlsPlayPause: false});
-*/
 });
 
