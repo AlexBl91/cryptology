@@ -1,9 +1,9 @@
 html {
-	font-size: 18px;
+font-size: 18px;
 }
 
 body {
-	background: url(../img/light_wool.png) repeat scroll;
+background: url(../img/light_wool.png) repeat scroll;
   color: #404040;
   font-family: Arial, sans-serif;
   font-size: 11px;
@@ -40,17 +40,47 @@ body {
   display: block;
   margin: 10px 0;
 }
+
+.btn {
+  display: inline-block;
+  position: relative;
+  right: -11px;
+  top : 0px;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 3px 6px;
+  border: none;
+  color: #ffffff; 
+  background: #35AA47;
+  font-family: "Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #1D943B;
+    background-image: -moz-linear-gradient(center top , #1D943B, #1D943B);
+    background-repeat: repeat-x;
+}
+
+.btn:active {
+    background-color: #35AA47;
+    background-image: -moz-linear-gradient(center top , #35AA47, #1D943B);
+    background-repeat: repeat-x;
+}
+
 .footer {
     background-color: #F5F5F5;
     border-top: 1px solid #B0B0B0;
     margin: -47px 0 0;
-    margin-top: 50px;   
+    margin-top: 50px;
     height: 46px;
     opacity: 0.7;
     cursor: default;
 }
 .footer span {
-	position: relative;
-	left: 20px;
-	top: 16px;
+position: relative;
+left: 20px;
+top: 16px;
 }
+
