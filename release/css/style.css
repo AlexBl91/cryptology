@@ -1,0 +1,202 @@
+
+
+html {
+	font-size: 18px;
+}
+
+body {
+	background: url(../img/light_wool.png) repeat scroll;
+  color: #404040;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  height: 100%;
+  width: 100%;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+ul {
+  list-style: none outside none;
+}
+*/
+
+.wrap {
+  max-width: 1280px;
+  min-width: 850px;
+  background: #FFFFFF;
+  height: auto !important;
+  text-align: justify;
+  box-shadow: 0 0 4px #404040;
+  margin: 0 auto;
+  padding: 0;
+}
+.full {
+  min-width: 100% !important;
+  background: none;
+}
+
+.header {
+    height: 60px;
+    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.5);
+}
+.dark {
+  background: #404040 repeat scroll;
+}
+.light {
+  //background: #f0f0f0 repeat scroll;
+  background: rgba(43, 116, 154, 0.88) repeat scroll;
+}
+
+.logo {
+  position: relative;
+  top: 7px;
+  float: left;
+  margin: 0 0 0 30px;
+  height: 60px;
+  width: 150px;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.55);
+  background: url(../img/logo.png) no-repeat scroll;
+}
+
+.task {
+  margin: 20px 0px;
+  position: relative;
+  left: 50px;
+}
+/*
+.task span {
+  font-size: 14px;
+  display: block;
+  margin: 10px 0;
+}*/
+.task-decrip {
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 20px;
+  margin: 10px;
+  width: 350px;
+}
+.content {
+  background:url(../img/rough_diagonal.png); repeat scroll;
+  margin: 0;
+  height: 400px;
+  position: relative;
+  /*box-shadow: 0 2px 3px rgba(129, 129, 129, 0.35);*/
+}
+
+.slider-container {
+  display: inline-block;
+  margin: 75px 340px;
+  height: 250px;
+  width: 600px;
+}
+
+#slider {
+  height: 250px;
+  width: 600px;
+  margin: 0;
+  padding: 0;
+}
+
+#slider li {
+    list-style: none outside none;
+}
+.slider-item {
+  background: #F2F2F2;
+  width: 600px;
+  height: 250px;
+  float: left;
+  overflow: hidden;
+}
+
+.task-header {
+  font-size: 25px;
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+.btn {
+  display: inline-block;
+  position: relative;
+  float: right;
+  right: 10px;
+  top : 20px;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 10px 5px 5px 10px;
+  border: none;
+  color: #ffffff; 
+  background: #35AA47;
+  font-family: "Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  width: 70px;
+}
+.btn:hover, .btn:focus {
+    background-color: #1D943B;
+    background-image: -moz-linear-gradient(center top , #1D943B, #1D943B);
+    background-repeat: repeat-x;
+}
+.btn:active {
+    background-color: #35AA47;
+    background-image: -moz-linear-gradient(center top , #35AA47, #1D943B);
+    background-repeat: repeat-x;
+}
+
+.icon-rightward {
+  background-image: url(../img/syncfusion-icons-white.png);
+  background-position: -24px -7px;.
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 20px;
+  vertical-align: top;
+  width: 20px;
+  position: relative;
+  top: -1px;
+}
+
+.task-content {
+  background: #fefefe no-repeat scroll;
+  height: 600px;
+  border-top: 1px solid #B0B0B0;
+}
+
+.task-name {
+  width: 100px;
+  height: 40px;
+  position: relative;
+  top: 30px;
+  left: 150px;
+  background: #E4E4E4;
+}
+
+.task-alg {
+  width: 250px;
+  height: 400px;
+  position: relative;
+  top: 60px;
+  left: 150px;
+  background: #E4E4E4;
+}
+
+.footer {
+    background-color: #F5F5F5;
+    border-top: 1px solid #B0B0B0;
+    margin: -47px 0 0;
+    margin-top: 50px;   
+    height: 46px;
+    opacity: 0.7;
+    cursor: default;
+    position: relative;
+}
+.footer span {
+	position: relative;
+	left: 20px;
+	top: 16px;
+}

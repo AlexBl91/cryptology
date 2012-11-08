@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<title>Progs</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/rhinoslider-1.05.css">
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+    <script src="js/easing.js" type="text/javascript"></script>
+    <script src="js/mousewheel.js" type="text/javascript"></script>
+    <script src="js/rhinoslider-1.05.js" type="text/javascript"></script>
+    <script type="text/javascript">
+			$(document).ready(function() {
+				$('#slider').rhinoslider({
+					controlsPlayPause: false
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="header light">
+				<div class="logo"></div>
+			</div>
+			<section class="content">
+				<div class="slider-container rhino-controls-prev-next rhino-show-controls rhino-show-bullets rhino-controls-keyboard rhino-controls-mousewheel">
+					<ul id="slider">
+						<li class="slider-item" id="task1">
+							<span class="task-header">Task 1</span>
+							<a href="#" class="btn">Launch <i class="icon-rightward"></i></a>
+							<p class="task-decrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis nibh. Suspendisse semper adipiscing enim, id commodo mi iaculis eu. Ut consequat dolor ac ante commodo ac lobortis ipsum convallis. In nec nunc turpis, id porta velit. Vestibulum interdum ultricies mi, sed ullamcorper est condimentum et. Suspendisse gravida felis ac libero tincidunt sed eleifend massa tempor. Nam quis sagittis mauris. </p>
+						</li>
+						<li class="slider-item" id="task2">
+							<span class="task-header">Task 2</span>
+							<a href="#" class="btn">Launch <span class="icon-rightward"></span></a>
+							<span class="task-decrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis nibh. Suspendisse semper adipiscing enim, id commodo mi iaculis eu. Ut consequat dolor ac ante commodo ac lobortis ipsum convallis. In nec nunc turpis, id porta velit. Vestibulum interdum ultricies mi, sed ullamcorper est condimentum et. Suspendisse gravida felis ac libero tincidunt sed eleifend massa tempor. Nam quis sagittis mauris. </span>
+						</li>
+						<li class="slider-item" id="task3">
+							<span class="task-header">Task 3</span>
+							<a href="#" class="btn">Launch <i class="icon-rightward"></i></a>
+							<span class="task-decrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis nibh. Suspendisse semper adipiscing enim, id commodo mi iaculis eu. Ut consequat dolor ac ante commodo ac lobortis ipsum convallis. In nec nunc turpis, id porta velit. Vestibulum interdum ultricies mi, sed ullamcorper est condimentum et. Suspendisse gravida felis ac libero tincidunt sed eleifend massa tempor. Nam quis sagittis mauris. </span>
+						</li>
+						<li class="slider-item" id="task4">
+							<span class="task-header">Task 3</span>
+							<a href="#" class="btn">Launch <i class="icon-rightward"></i></a>
+							<span class="task-decrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis nibh. Suspendisse semper adipiscing enim, id commodo mi iaculis eu. Ut consequat dolor ac ante commodo ac lobortis ipsum convallis. In nec nunc turpis, id porta velit. Vestibulum interdum ultricies mi, sed ullamcorper est condimentum et. Suspendisse gravida felis ac libero tincidunt sed eleifend massa tempor. Nam quis sagittis mauris. </span>
+						</li>
+					</ul>
+					<a class="rhino-prev rhino-btn" style="position: absolute; display: none; cursor: pointer;">prev</a>
+					<a class="rhino-next rhino-btn" style="position: absolute; display: none; cursor: pointer;">next</a>
+				</div>
+			</section>
+			<section class="task-content">
+				<div class="task-name"></div>
+				<div class="task-alg"></div>
+				<div class="task-block"></div>
+			</section>
+			<div class="footer">
+        <span>Author: Alexander Blinov. NNTU 2012</span>
+     	</div>
+		</div>
+	</body>
+</html>
