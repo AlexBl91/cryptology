@@ -5,5 +5,7 @@
 *.war
 *.ear
 New Folder/
-*pdf
+*.pdf
+img/debut_dark.png
+*.txt
 
