@@ -1,14 +1,12 @@
-
-
 html {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 body {
-	background: url(../img/light_wool.png) repeat scroll;
+  //background: url(../img/light_wool.png) repeat scroll;
+  background: #EBEBEB repeat scroll;
   color: #404040;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
+  font-family: "Segoe UI", sans-serif;
   height: 100%;
   width: 100%;
   word-wrap: break-word;
@@ -24,83 +22,109 @@ ul {
   list-style: none outside none;
 }
 */
-
-.wrap {
-  max-width: 1280px;
-  min-width: 850px;
-  background: #FFFFFF;
-  height: auto !important;
-  text-align: justify;
-  box-shadow: 0 0 4px #404040;
+.wrap, .logo, footer div {
   margin: 0 auto;
-  padding: 0;
+  max-width: 1000px;
+  padding: 0px;
 }
+
 .full {
   min-width: 100% !important;
   background: none;
 }
 
-.header {
-    height: 60px;
-    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.5);
+header {
+    height: 150px;
+    background: url(../img/low_contrast_linen.png) repeat scroll;
 }
-.dark {
-  background: #404040 repeat scroll;
-}
-.light {
-  //background: #f0f0f0 repeat scroll;
-  background: rgba(43, 116, 154, 0.88) repeat scroll;
-}
-
 .logo {
-  position: relative;
-  top: 7px;
-  float: left;
-  margin: 0 0 0 30px;
-  height: 60px;
-  width: 150px;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.55);
-  background: url(../img/logo.png) no-repeat scroll;
+  cursor: pointer;
+  height: 100%;
 }
-
+.logo:hover {
+  color: #838383 !important;
+}
+.logo span {
+  position: relative;
+  top: 40px;
+  left: 20px;
+  font-size: 50px;
+  color: #737373;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+  font-family: "Segoe UI",sans-serif;
+}
+.logo span:hover {
+  color: inherit;
+}
 .task {
   margin: 20px 0px;
   position: relative;
   left: 50px;
 }
-/*
-.task span {
-  font-size: 14px;
-  display: block;
-  margin: 10px 0;
-}*/
+
 .task-decrip {
   display: block;
   position: relative;
-  top: 50px;
-  left: 20px;
-  margin: 10px;
-  width: 350px;
+  top: 40px;
+  margin: 0 auto;
+  width: 450px;
+  color: #333333;
+  text-shadow: 0 1px 0 #FFFFFF;
+  font-size: 15px;
+  text-align: justify;
 }
 .content {
-  background:url(../img/rough_diagonal.png); repeat scroll;
-  margin: 0;
-  height: 400px;
   position: relative;
-  /*box-shadow: 0 2px 3px rgba(129, 129, 129, 0.35);*/
+  margin: 0 auto;
+  height: 500px;
+  border-bottom-color: #D1D1D1;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-top-color: #FAFAFA;
+  border-top-style: solid;
+  border-top-width: 1px;
 }
-
+.wrap {
+  position: relative;
+  height: inherit;
+  width: inherit;
+}
+.tile {
+  position: absolute;
+  left: 120px;
+  height: 110px;
+  width: 220px;
+  background: #F7F7F7;
+}
+.tile:hover {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+}
+#tile-alg {
+  top: 125px;
+}
+#tile-theory {
+  bottom: 125px;
+}
+.tile-header {
+  position: absolute;
+  top: 10px;
+  margin: 0 0 0 10px;
+  font-size: 18px;
+  text-shadow: white 0px 1px 0px;
+}
 .slider-container {
-  display: inline-block;
-  margin: 75px 340px;
+  position: absolute;
+  right: 120px;
+  margin: 125px 0px 125px 0px;
   height: 250px;
-  width: 600px;
+  width: 500px;
 }
 
 #slider {
   height: 250px;
-  width: 600px;
-  margin: 0;
+  width: 500px;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -108,13 +132,18 @@ ul {
     list-style: none outside none;
 }
 .slider-item {
-  background: #F2F2F2;
-  width: 600px;
-  height: 250px;
+  background: #F7F7F7;
+  width: inherit;
+  height: inherit;
   float: left;
   overflow: hidden;
 }
-
+.slider-item .btn {
+  position: relative;
+  right: 10px;
+  top : 20px;
+  float: right;
+}
 .task-header {
   font-size: 25px;
   position: relative;
@@ -123,10 +152,6 @@ ul {
 }
 .btn {
   display: inline-block;
-  position: relative;
-  float: right;
-  right: 10px;
-  top : 20px;
   font-size: 12px;
   cursor: pointer;
   padding: 10px 5px 5px 10px;
@@ -162,9 +187,15 @@ ul {
 }
 
 .task-content {
-  background: #fefefe no-repeat scroll;
+  //background: #fefefe no-repeat scroll;
   height: 600px;
-  border-top: 1px solid #B0B0B0;
+  border-bottom-color: #D1D1D1;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-top-color: #FAFAFA;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-shadow: 0 0 10px #FFFFFF
 }
 
 .task-name {
@@ -172,31 +203,91 @@ ul {
   height: 40px;
   position: relative;
   top: 30px;
-  left: 150px;
-  background: #E4E4E4;
+  /*background: #EEEEEE;*/
+  font-size: 25px;
+  float: left;
+  display: inline-block;
 }
 
 .task-alg {
-  width: 250px;
+  display: inline-block;
+  width: 350px;
   height: 400px;
   position: relative;
-  top: 60px;
-  left: 150px;
-  background: #E4E4E4;
+  top: 80px;
+  left: -100px;
+  background: #F7F7F7;
+  color: #333333;
+  text-shadow: 0 1px 0 #FFFFFF;
+  font-size: 20px;
+}
+.task-block {
+  background: #F7F7F7;
+  position: relative;
+  top: 50px;
+  float: right;
+  height: 500px;
+  width: 430px;
+  overflow-y: scroll;
 }
 
-.footer {
-    background-color: #F5F5F5;
-    border-top: 1px solid #B0B0B0;
-    margin: -47px 0 0;
-    margin-top: 50px;   
-    height: 46px;
-    opacity: 0.7;
-    cursor: default;
-    position: relative;
+.task-block h2 {
+  margin: 10px 0px 0px 10px;
 }
-.footer span {
-	position: relative;
-	left: 20px;
-	top: 16px;
+.task-block div {
+  /*position: absolute;
+  top: 20px;
+  left: 20px;*/
+}
+.task-block input {
+  margin-right: 4px;
+}
+.task-block button {
+  position: relative;
+  top: 1px;
+  margin-top: 4px;
+  padding: 4px;
+} 
+.task {
+  margin: 20px 0px;
+  position: relative;
+  left: 50px;
+}
+
+.task span {
+  font-size: 14px;
+  display: block;
+  margin: 10px 0;
+}
+#task2 {
+  display: none;
+}
+
+.result {
+  margin-top: 10px;
+}
+.result span {
+  height: auto;
+}
+footer {
+  background-color: #F5F5F5;
+  border-top: 1px solid #B0B0B0;
+  margin: -47px 0 0; 
+  height: 46px;
+  opacity: 0.7;
+  cursor: default;
+  position: relative;
+  font-size: 12px;
+}
+footer span {
+  position: relative;
+  left: 20px;
+  top: 16px;
+}
+footer a {
+  position: relative;
+  left: 60px;
+  top: 16px;
+  color: #404040;
+  word-wrap: break-word;
 }

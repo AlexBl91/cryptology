@@ -19,21 +19,29 @@
 		</script>
 	</head>
 	<body>
-		<div class="wrap">
-			<div class="header light">
-				<div class="logo"></div>
-			</div>
-			<section class="content">
+		<header>
+			<div class="logo"><span>Cryptology</span></div>
+		</header>
+		<section class="content">
+			<div class="wrap">
+				<div id="tile-alg" class="tile">
+					<span class="tile-header">Algorithms</span>
+					<div class="tile-descrip"></div>
+				</div>
+				<div id="tile-theory" class="tile">
+					<span class="tile-header">Theory</span>
+					<div class="tile-descrip"></div>
+				</div>		
 				<div class="slider-container rhino-controls-prev-next rhino-show-controls rhino-show-bullets rhino-controls-keyboard rhino-controls-mousewheel">
 					<ul id="slider">
 						<li class="slider-item" id="task1">
 							<span class="task-header">Task 1</span>
-							<a href="#" class="btn">Launch <i class="icon-rightward"></i></a>
+							<a href="#" class="btn" id="launch-task1">Launch <i class="icon-rightward"></i></a>
 							<p class="task-decrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis nibh. Suspendisse semper adipiscing enim, id commodo mi iaculis eu. Ut consequat dolor ac ante commodo ac lobortis ipsum convallis. In nec nunc turpis, id porta velit. Vestibulum interdum ultricies mi, sed ullamcorper est condimentum et. Suspendisse gravida felis ac libero tincidunt sed eleifend massa tempor. Nam quis sagittis mauris. </p>
 						</li>
 						<li class="slider-item" id="task2">
 							<span class="task-header">Task 2</span>
-							<a href="#" class="btn">Launch <span class="icon-rightward"></span></a>
+							<a href="#" class="btn" id="launch-task2">Launch <span class="icon-rightward"></span></a>
 							<span class="task-decrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis nibh. Suspendisse semper adipiscing enim, id commodo mi iaculis eu. Ut consequat dolor ac ante commodo ac lobortis ipsum convallis. In nec nunc turpis, id porta velit. Vestibulum interdum ultricies mi, sed ullamcorper est condimentum et. Suspendisse gravida felis ac libero tincidunt sed eleifend massa tempor. Nam quis sagittis mauris. </span>
 						</li>
 						<li class="slider-item" id="task3">
@@ -42,7 +50,7 @@
 							<span class="task-decrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis nibh. Suspendisse semper adipiscing enim, id commodo mi iaculis eu. Ut consequat dolor ac ante commodo ac lobortis ipsum convallis. In nec nunc turpis, id porta velit. Vestibulum interdum ultricies mi, sed ullamcorper est condimentum et. Suspendisse gravida felis ac libero tincidunt sed eleifend massa tempor. Nam quis sagittis mauris. </span>
 						</li>
 						<li class="slider-item" id="task4">
-							<span class="task-header">Task 3</span>
+							<span class="task-header">Task 4</span>
 							<a href="#" class="btn">Launch <i class="icon-rightward"></i></a>
 							<span class="task-decrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis nibh. Suspendisse semper adipiscing enim, id commodo mi iaculis eu. Ut consequat dolor ac ante commodo ac lobortis ipsum convallis. In nec nunc turpis, id porta velit. Vestibulum interdum ultricies mi, sed ullamcorper est condimentum et. Suspendisse gravida felis ac libero tincidunt sed eleifend massa tempor. Nam quis sagittis mauris. </span>
 						</li>
@@ -50,15 +58,36 @@
 					<a class="rhino-prev rhino-btn" style="position: absolute; display: none; cursor: pointer;">prev</a>
 					<a class="rhino-next rhino-btn" style="position: absolute; display: none; cursor: pointer;">next</a>
 				</div>
-			</section>
-			<section class="task-content">
-				<div class="task-name"></div>
-				<div class="task-alg"></div>
-				<div class="task-block"></div>
-			</section>
-			<div class="footer">
-        <span>Author: Alexander Blinov. NNTU 2012</span>
-     	</div>
-		</div>
+			</div>
+		</section>
+		<section class="task-content">
+			<div class="wrap">
+				<div id="task1" class="task-form">
+					<div class="task-name">Task 1</div>
+					<div class="task-alg">fsdfsdfdsfsddfsfdsds</div>
+					<div class="task-block">
+						<div>
+							<input id="varA" class"txt-box requered">
+							<input id="varB" class"txt-box requered">
+							<button id="btnSubmit" class="btn" type="submit">Calculate</button>	
+						</div>
+						<div id="results" class="result">
+	        		<span id="result"></span>
+	      		</div>
+					</div>
+				</div>
+				<div id="task2" class="task-form">
+					<div class="task-name">Task 2</div>
+					<div class="task-alg"></div>
+					<div class="task-block">		
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div>
+	      <span>Author: Alexander Blinov. NNTU 2012</span>
+	      <a href="https://github.com/AlexBl91/cryptology">Help the project</a>
+			</div>
+   	</footer>
 	</body>
 </html>
