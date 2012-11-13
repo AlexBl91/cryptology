@@ -1,3 +1,5 @@
+//#import 'searchGeneratingElement.js'
+
 // Task #1
 // The function calculates greatest common divisor by the Euclid algorithm.
 // Accepts 2 arguments of type integer.
@@ -46,7 +48,7 @@ function printTask1(ARGV) {
   var arrR = ARGV[3];
   var arrQ = ARGV[4];
   var arrX = ARGV[5];
-  //document.getElementById('result').innerHTML = "Bezout's identity:  " +  a + ' * ' + arrX[arrX.length-2] + ' + ' + b + ' * ' + v + ' = ' + arrR[arrR.length-2];
+  document.getElementById('result').innerHTML = "Bezout's identity:  " +  a + ' * ' + arrX[arrX.length-2] + ' + ' + b + ' * ' + v + ' = ' + arrR[arrR.length-2];
   print1(arrR, arrQ, arrX);
 }
 
@@ -56,28 +58,36 @@ function print1(arrR, arrQ, arrX) {
   for (var i = 2; i<=arrR.length; i++)
   {
     var newElem = document.createElement('div');
-    newElem.innerHTML = arrR[i-2] + '\t' + arrQ[i-2] + '\t' + arrX[i-2];
-    newElem.className = 'tmpResult';
+    newElem.innerHTML = arrR[i-2] + ' --- ' + arrQ[i-2] + ' --- ' + arrX[i-2];
+    newElem.id = 'tmpResult';
+    newElem.style.margin = '5px';
     document.getElementById('results').appendChild(newElem);
   }
   var newElem = document.createElement('button');
   newElem.className = 'btn tmp';
   newElem.id = 'tmpBtnClean';
-  newElem.onClick = "clean()";
+  newElem.setAttribute('onClick', 'clean()');
   newElem.innerHTML = 'clean';
-  newElem.style.position = 'relative';
-  newElem.style.left = '100px';
   document.getElementById('results').appendChild(newElem);
 }
 
 function clean() {
-  document.getElementByClassName('results').removeChild(getElementById('tmpBtnClean'));
+  var a = document.getElementById('results');
+  var b = document.getElementById('tmpBtnClean');
+  a.removeChild(b);
   while (true) {
-    if (!document.getElementByClassName('results').removeChild(getElementByClassName('tmpResult'))) {
+    var c = document.getElementById('results');
+    var d = document.getElementById('tmpResult');
+    if (d == null) {
       break;
+    } else {
+      c.removeChild(d);
     }
   }
+  document.getElementById('result').innerHTML = "";
 }
+
+
 
 // The function check of input data. Called without arguments.
 // Returns 0 (false in boolean) if even one text box is 
@@ -244,9 +254,24 @@ $(document).ready(function(){
       }
     }
   });
-  $("#tmpBtnClean").click(function(){
-    alert('udifghifdugb;fdl');
-    clean();
+
+  $("#mult").click(function(){
+    document.getElementById("add").checked = false;
   });
+  $("#add").click(function(){
+    document.getElementById("mult").checked = false;
+  });
+
+  $("#btnSubmit3").click(function(){
+    // TODO: to write body
+  });
+
+  $("#btnSubmit4").click(function(){
+    var a = document.getElementById('varTask4').value;
+    if (FilterInput(a)) {
+      PrintResTask4(DeterminingOrderOfElem(a));
+    }
+  });
+  
 });
 
