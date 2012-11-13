@@ -1,5 +1,12 @@
 //#import 'scripts.js'
 
+// Definition a constants
+
+var MAX_POSSIBLE_ORDER = 1000;
+
+
+
+
 function Group() {
 	this.val = arguments[0];
 	this.use = false;
@@ -56,7 +63,7 @@ function GetGeneratingElem(arr, n) {
 }
 
 function EulerFunction(m) {
-	var primeNums = InitArrayOfPrimeNumsObj(EratosthenesSieve(m));
+	var primeNums = CanonicalRepresentations(m);
 	var count = m;
 	for (var i = 0; i < primeNums.length; i++) {
 		if (primeNums[i].count > 0) {
@@ -95,11 +102,22 @@ function DeterminingOrderOfElem(m, type) {
 
 	for (var i = 0; i < group.length; i++) {
 		var order = 2;
-		while (group[i].order == undefined) {
+		while (group[i].order == undefined && order < MAX_POSSIBLE_ORDER) {
 			if (Math.pow(group[i].val, order++) % m == 1) {
 				group[i].order = order - 1;
+			}
+			if (order == MAX_POSSIBLE_ORDER) {
+				group[i].order = 'infinity';
 			}
 		}
 	}
 	return group;
+}
+
+function PrintResTask4(arr) {
+	for (var i = 0; i < arr.length; i++) {
+		var elem = document.createElement('div');
+		elem.innerHTML = 'ord ' + arr[i].val + ' = ' + arr[i].order;
+		document.getElementById('results4').appendChild(elem);
+	}
 }

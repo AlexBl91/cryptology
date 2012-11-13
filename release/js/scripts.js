@@ -46,7 +46,7 @@ function printTask1(ARGV) {
   var arrR = ARGV[3];
   var arrQ = ARGV[4];
   var arrX = ARGV[5];
-  //document.getElementById('result').innerHTML = "Bezout's identity:  " +  a + ' * ' + arrX[arrX.length-2] + ' + ' + b + ' * ' + v + ' = ' + arrR[arrR.length-2];
+  document.getElementById('result').innerHTML = "Bezout's identity:  " +  a + ' * ' + arrX[arrX.length-2] + ' + ' + b + ' * ' + v + ' = ' + arrR[arrR.length-2];
   print1(arrR, arrQ, arrX);
 }
 
@@ -56,27 +56,35 @@ function print1(arrR, arrQ, arrX) {
   for (var i = 2; i<=arrR.length; i++)
   {
     var newElem = document.createElement('div');
-    newElem.innerHTML = arrR[i-2] + '\t' + arrQ[i-2] + '\t' + arrX[i-2];
-    newElem.className = 'tmpResult';
+    newElem.innerHTML = arrR[i-2] + ' --- ' + arrQ[i-2] + ' --- ' + arrX[i-2];
+    newElem.id = 'tmpResult';
+    newElem.style.margin = '5px';
     document.getElementById('results').appendChild(newElem);
   }
   var newElem = document.createElement('button');
   newElem.className = 'btn tmp';
   newElem.id = 'tmpBtnClean';
-  newElem.onClick = "clean()";
+  newElem.setAttribute('onClick', 'clean()');
   newElem.innerHTML = 'clean';
-  newElem.style.position = 'relative';
-  newElem.style.left = '100px';
+  //newElem.style.position = 'relative';
+  //newElem.style.top = '-150px';
   document.getElementById('results').appendChild(newElem);
 }
 
 function clean() {
-  document.getElementByClassName('results').removeChild(getElementById('tmpBtnClean'));
+  var a = document.getElementById('results');
+  var b = document.getElementById('tmpBtnClean');
+  a.removeChild(b);
   while (true) {
-    if (!document.getElementByClassName('results').removeChild(getElementByClassName('tmpResult'))) {
+    var c = document.getElementById('results');
+    var d = document.getElementById('tmpResult');
+    if (d == null) {
       break;
+    } else {
+      c.removeChild(d);
     }
   }
+  document.getElementById('result').innerHTML = "";
 }
 
 // The function check of input data. Called without arguments.
@@ -134,6 +142,31 @@ function EratosthenesSieve(testNum) {
 
   return arr;
 }
+
+function BruteForce(testNum) {
+  var n = 2;
+  var primeNums = [];
+  primeNums[0] = new PrimeNums(n);
+  var i = 0;
+  while (true) {
+    while (testNum % n == 0) {
+      testNum /= n;
+      if (primeNums[i] == undefined) {
+        primeNums[i] = new PrimeNums(n);
+        primeNums[i].count++;
+      } else {
+        primeNums[i].count++;
+      }
+    }
+    if (testNum == 1) {
+      break;
+    } else {
+      n++;
+      i++;
+    }
+  }
+  return primeNums;
+}
 // The function initializes an array of objects PrimeNums. Accepts
 // array and returns an array of objects PrimeNums.
 function InitArrayOfPrimeNumsObj(arr) {
@@ -152,7 +185,7 @@ function PrimeNums(parameter) {
 // The function canonical representation of the number of primes
 function CanonicalRepresentations(a) {
   var primeNums = [];
-  primeNums = InitArrayOfPrimeNumsObj(EratosthenesSieve(a)); 
+  primeNums = InitArrayOfPrimeNumsObj(EratosthenesSieve(a));       
   var i = 0;
 
   while(true) {
@@ -212,16 +245,12 @@ $(document).ready(function(){
   $("#btnSubmit2").click(function(){
     var varCValue = document.getElementById('varC').value;
     if (FilterInput(varCValue)) {
-      printResTask2(CanonicalRepresentations(varCValue));     
+      if (varCValue.length < 8) {
+      printResTask2(CanonicalRepresentations(varCValue)); 
+      } else {
+        printResTask2(BruteForce(varCValue));     
+      }
     }
   });
-  $("#tmpBtnClean").click(function(){
-    alert('udifghifdugb;fdl');
-    clean();
-  });
-/*
-  $('#slideshow').rhinoslider({
-    controlsPlayPause: false});
-*/
 });
 
