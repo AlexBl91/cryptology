@@ -263,7 +263,10 @@ $(document).ready(function(){
   });
 
   $("#btnSubmit3").click(function(){
-    // TODO: to write body
+    var a = document.getElementById('varTask3').value;
+    if (FilterInput(a)) {
+      PrintResTask3(GetGeneratingElem(a));
+    }
   });
 
   $("#btnSubmit4").click(function(){

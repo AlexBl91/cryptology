@@ -26,29 +26,34 @@ function GetRandomInt(min, max) {
 }
 
 function GetRandElem(arr) {
+	while(true) {
 	var rand = GetRandomInt(0, Number(arr.length) - Number(1));
-	group[rand].use = true;
-	return group[rand].val;
+	if(arr[rand].use == false)
+		arr[rand].use = true;
+		break;
+	}
+	return arr[rand].val;
 }
 
 function Factorization(arr) {
 	var result = 1;
-	for (var i = 0; i < p.length; i++) {
-		result *= Math.pow(p[i].val, p[i].count);
+	for (var i = 0; i < arr.length; i++) {
+		result *= Math.pow(arr[i].val, arr[i].count);
 	}
 	return result;
 }
 
-function GetGeneratingElem(arr, n) {
-	var group = InitArrayOfGroupElemObj(arr);
+function GetGeneratingElem(m) {
+	var group = InitArrayOfGroupElemObj(GetElements(m));
 	var primes = [];
-	primes = InitArrayOfPrimeNumsObj(EratosthenesSieve(n));
+	var n = group.length;
+	primes = CanonicalRepresentations(n);
 	var a;
 	var b;
 
 	while(true) {
 		var flag = true
-		a = getRandElem(group);
+		a = GetRandElem(group);
 		for (var i = 0; i < primes.length; i++) {
 			b = Math.pow(a, n / primes[i].val);
 			if (b % n == 1) {
@@ -60,6 +65,11 @@ function GetGeneratingElem(arr, n) {
 		return a;			
 		}
 	}
+}
+
+function PrintResTask3() {
+	var elem = document.getElementById("result3");
+	elem.innerHTML = "Generating element is " + arguments[0];
 }
 
 function EulerFunction(m) {
@@ -101,7 +111,7 @@ function DeterminingOrderOfElem(m, type) {
 	var group = InitArrayOfGroupElemObj(arrayOfElements);
 
 	for (var i = 0; i < group.length; i++) {
-		var order = 2;
+		var order = 1;
 		while (group[i].order == undefined && order < MAX_POSSIBLE_ORDER) {
 			if (Math.pow(group[i].val, order++) % m == 1) {
 				group[i].order = order - 1;
