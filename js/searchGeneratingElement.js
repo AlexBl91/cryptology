@@ -56,7 +56,7 @@ function GetGeneratingElem(m) {
 		a = GetRandElem(group);
 		for (var i = 0; i < primes.length; i++) {
 			b = Math.pow(a, n / primes[i].val);
-			if (b % n == 1) {
+			if (b % m == 1) {
 				flag = false;
 				break;
 			}
@@ -80,7 +80,7 @@ function EulerFunction(m) {
 			count *= 1 - 1 / primeNums[i].val;
 		}
 	}
-	return count;
+	return Math.round(count);
 }
 
 // The function calculates elements of the group by value of factor set.
