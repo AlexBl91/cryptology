@@ -5,55 +5,96 @@
     <title>Progs</title>
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/scripts.js" type="text/javascript"></script>
-    <script src="js/searchGeneratingElement.js" type="text/javascript"></script>
+    <script src="js/tasks.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
     <div class="wrap">
-      <div class="header"></div>
+      <div class="header">
+        <span>Mathematical foundations of cryptology</span>
+      </div>
+      <div class="task" id="task-0">
+        <span>Euclid's algorithm</span>
+        <input id="varATask0" class="txt-box" class="requered">
+        <input id="varBTask0" class="txt-box" class="requered">
+        <button id="btnSubmit0" class="btn" type="submit">calculate</button>
+         <div id="results0" class="results">
+           <span id="result0"></span>
+         </div>
+      </div>
       <div class="task" id="task-1">
-        <span>Euclid algorithm</span>
+        <span>Extended Euclid's algorithm</span>
         <input id="varA" class="txt-box" class="requered">
         <input id="varB" class="txt-box" class="requered">
         <button id="btnSubmit" class="btn" type="submit">calculate</button>
-         <div id="results">
+         <div id="results" class="results">
            <span id="result"></span>
          </div>
       </div>
       <div class="task" id="task-2">
         <span>Canonical representation</span>
-        <input id="varC" class="txt-box" class="requered">
+        <input id="varC" class="txt-box" class="requered" placeholder="Type a number">
         <button id="btnSubmit2" class="btn" type="submit">calculate</button>
-        <div id="results1">
+        <div id="results1" class="results">
           <span id="result1"></span>
         </div>
       </div>
-      <div class="task" id="task-3">
+      <div class="task" id="task-6">
+        <span>Euler's function</span>
+        <input id="varTask6" class="txt-box" class="requered" placeholder="Type a set factor">
+        <button id="btnSubmit6" class="btn" type="submit">calculate</button>
+        <div id="results6" class="results">
+          <span id="result6"></span>
+        </div>
+      </div>
+      <div class="task" id="task-7">
+        <span>Search the inverse element</span>
+        <input id="varTask7" class="txt-box" class="requered" placeholder="Type a number">
+        <input id="varTask7-1" class="txt-box" class="requered" placeholder="Type a set factor">
+        <button id="btnSubmit7" class="btn" type="submit">calculate</button>
+        <div id="results7" class="results">
+          <span id="result7"></span>
+        </div>
+      </div>
+      <div class="task" id="task-7">
         <span>Search generating element</span>
-        <input id="varTask3" class="txt-box" class="requered">
+        <input id="varTask3" class="txt-box" class="requered" placeholder="Type a set factor">
         <button id="btnSubmit3" class="btn" type="submit">calculate</button>
-        <div id="results3">
+        <div id="results3" class="results">
           <span id="result3"></span>
         </div>
       </div>
       <div class="task" id="task-4">
         <span>Determinig order of the element</span>
-        <span class="sub-title">Group type:</span>
+        <!--<span class="sub-title">Group type:</span>
         <div class="radio">
           <input id="mult" type="radio" value="1" name="mult">
           <span for="mult">multiplicative</span>
           <input id="add" type="radio" value="0" name="add">
           <span for="add">additive</span>
-        </div>
-        <input id="varTask4" class="txt-box" class="requered">
+        </div>-->
+        <input id="varTask4" class="txt-box" class="requered" placeholder="Type a set factor">
         <button id="btnSubmit4" class="btn" type="submit">calculate</button>
-        <div id="results4">
+        <div id="results4" class="results">
           <span id="result4"></span>
         </div>
       </div>
-      <div class="footer">
-        <span>Author: Alexander Blinov. NNTU 2012</span>
+      <div class="task" id="task-5">
+        <span>Polynomial</span>
+        <input id="varTask5" class="txt-box" class="requered" placeholder="Type a dividend">
+        <input id="varTask5-1" class="txt-box" class="requered" placeholder="Type a dividor">
+        <button id="btnSubmit5" class="btn" type="submit">calculate</button>
+        <button id="btnSubmit5-1" class="btn" type="submit">test</button>
+        <div id="results5" class="results">
+          <span id="result5"></span>
+        </div>
       </div>
+      <footer>
+      <div>
+        <span>Author: Alexander Blinov. NNTU 2012</span>
+        <a href="https://github.com/AlexBl91/cryptology">Help the project</a>
+      </div>
+    </footer>
     </div>	
   </body>
 </html>
